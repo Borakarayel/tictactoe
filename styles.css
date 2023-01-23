@@ -1,0 +1,52 @@
+
+body {
+    background-image: url("images/black-board.jpg");
+    background-repeat: repeat;
+    /* background-size: 1400px 1100px; */
+    color: whitesmoke;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Source Code Pro", sans-serif;
+}
+
+
+.gameWrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+}
+.gameboard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 2rem;
+    width: 25vw;
+    height: 25vw;
+}
+
+.box{
+    min-width: 50px;
+    min-height: 50px;
+    width: auto;
+    height: auto;
+    font-size: max(4vw, 3rem);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    background: red;
+}
+
+.box:hover{
+    transform: scale(1.2);
+}
+
+/* @media only screen and (max-width: 900px){
+    .gameboard{
+        width: 100vw;}
+}
+    .gameWrapper{
+        width: auto;} */
