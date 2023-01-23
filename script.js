@@ -30,6 +30,12 @@ const winningConditions = [
 
 
 const form = document.querySelector("#myForm");
+const newGameBtn = document.querySelector('#restartBtn');
+const resetGame = document.querySelector('#resetBtn');
+
+newGameBtn.addEventListener('click', () => {
+    window.location.reload()
+})
 
 form.addEventListener('submit', (event) => {
     //prevvent page refresh
@@ -51,14 +57,28 @@ const initializeVariables = (data) => {
     data.currentPlayer = "X";
     data.gameOver = false;
 }
+
+const resetDOM = () => {
+    document.querySelectorAll('.box').forEach(box => {
+        box.className = "box";
+        box.textContent = ""
+         
+    });
+}
 const addEventListenerToGameBoard = (data) => {
     document.querySelectorAll('.box').forEach(box => {
         box.addEventListener('click', (event) => {
             playMove(event.target, data)
-        })
+        });
          
+    });
+    resetGame.addEventListener('click', () => {
+        initializeVariables(data);
+        resetDOM();
+        adjustDOM('displayTurn', `${data.player1Name}'s turn` )
+
     })
-}
+};
 
 const initializeGame = (data) => {
     //initialize game variables
@@ -145,25 +165,31 @@ const adjustDOM = (className, textContent) => {
 };
 
 const changePlayer = (data) => {
-    data.currentPlayer = data.currentPlayer === "X" ? "0":"X"
+    data.currentPlayer = data.currentPlayer === "X" ? "O":"X"
     //adjust the DOM
     let displayTurnText = data.currentPlayer === "X" ? data.player1Name : data.player2Name
     adjustDOM('displayTurn', `${displayTurnText}'s turn` )
 };
 
 const easyAiMove = (data) => {
-   setTimeout(() => { changePlayer(data);
+    changePlayer(data);
+    data.round++;
     let availableSpaces = data.board.filter(
-        (space) => space !== "X" && space !== "0");
+        (space) => space !== "X" && space !== "O");
     let move = 
     availableSpaces[Math.floor(Math.random()*availableSpaces.length)];
     console.log(move);
     data.board[move] = data.player2;
+
+    setTimeout(() => { 
     let box = document.getElementById(`${move}`);
     box.textContent = data.player2;
-    box.classList.add("player2");}, 200)
+    box.classList.add("player2");}, 20)
     if (endConditions(data)){
         return; 
     }
-    changePlayer(date);
 }; 
+
+
+
+

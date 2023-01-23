@@ -1,4 +1,4 @@
 # tictactoe
 
-<a href="https://borakarayel.github.tictactoe/">Demo link</a>
+<a href="https://borakarayel.github.io/tictactoe">Demo link</a>
 
