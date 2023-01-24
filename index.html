@@ -43,7 +43,7 @@
         <div id="initialForm" class="modal">
         <!-- Initial Popup Content -->
         <div class="front-content">
-            <form autocomlete="off" id="myForm">
+            <form autocomlete="off" id="myForm" class="formClass">
                 <div class="inputField">
                     <label class="input-label">Player 1's name (X): </label>
                     <input type="text" name="player1Name" class="formClass" id="form1" required/>
@@ -59,12 +59,12 @@
                     <label for="ai" class="Title">Human vs EasyAI</label>
                     <input type="radio" id="ai" name="choice" value="1" required>
                 </div>
-                <div class="inputField">
+                <!-- <div class="inputField">
                     <label for="ai" class="Title">Human vs HardAI</label>
                     <input type="radio" id="aiHard" name="choice" value="2" required>
-                </div>
+                </div> -->
                 <div class="flex">
-                    <button class="startButton" type="submit">Start Game</button>
+                    <button class="startButton btn" type="submit">Start Game</button>
                 </div>
             </form>
         </div>
